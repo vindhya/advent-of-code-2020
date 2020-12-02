@@ -2,7 +2,7 @@ const numbers = require('./input');
 
 let num1, num2;
 
-numbers.sort((a, b) => a - b);
+// numbers.sort((a, b) => a - b);
 
 for (let i = 0; i < numbers.length; i++) {
   for (let j = i + 1; j < numbers.length; j++) {
