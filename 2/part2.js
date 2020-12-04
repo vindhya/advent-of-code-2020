@@ -5,16 +5,15 @@ lineReader('2/input.txt').then(array => {
   
   array.forEach(item => {
     const sections = item.split(' ');
-    const minMax = sections[0].split('-').map(item => parseInt(item));
+    const positions = sections[0].split('-').map(item => parseInt(item));
     const passwordLetter = sections[1].charAt(0);
     const password = sections[2];
     let occurences = 0;
 
-    for (let c of password) {
-      if (c === passwordLetter) occurences++;
-    }
+    if (password.charAt(positions[0] - 1) === passwordLetter) occurences++;
+    if (password.charAt(positions[1] - 1) === passwordLetter) occurences++;
 
-    if (occurences >= minMax[0] && occurences <= minMax[1]) passNum++;
+    if (occurences === 1) passNum++;
   });
 
   console.log('valid passwords:', passNum);
